@@ -5,18 +5,6 @@ data {
  vector[N] sample; // sample size
 }
 
-transformed data {
-	real successes[N];
-	real failures[N];
-
-	for (n in 1:N)
-	  successes[n] = round(rate[n] * sample[n]);
-
-	for (n in 1:N)
-	  failures[n] = sample[n] - successes[n];
-}
-
-
 parameters { 
   real normal_mu;
   real theta[N];
